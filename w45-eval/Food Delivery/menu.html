@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <div id="navbar">
+       
+    </div>
+    <div id="container">
+
+    </div>
+</body>
+
+</html>
+
+<script type="module">
+    let nav =document.getElementById('navbar')
+    import navbar from './component/navbar.js'
+
+    nav.innerHTML=navbar()
+</script>
+
+<script>
+
+fetch('https://www.themealdb.com/api/json/v1/1/categories.php').then((res)=>{
+    return res.json()
+}).then((res)=>{
+    console.log(res.categories)
+    showData(res.categories)
+
+})
+
+function showData(x){
+    let container=document.getElementById('container');
+    container.innerHTML=null;
+    x.forEach(({strCategory,strCategoryDescription,strCategoryThumb})=>{
+        let div=document.createElement('div')
+
+        let name=document.createElement('h3')
+        name.textContent=strCategory;
+        let dis=document.createElement('p')
+        dis.textContent=strCategoryDescription
+        let img=document.createElement('img')
+        img.src=strCategoryThumb;
+
+        let cartbtn=document.createElement('button')
+        cartbtn.innerText='Add to Cart';
+        div.append(img,name,dis,cartbtn)
+        container.append(div)
+        
+    })
+
+}
+</script>
