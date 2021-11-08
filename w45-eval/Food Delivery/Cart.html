@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="./style/style.css">
+    <style>
+        #btn{
+            border: 2px solid black;
+            color: white;
+            background-color: green;
+            padding: .5rem;
+            margin: 1rem 0 0 20rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar">
+
+    </div>
+    <button onclick="placeOrderFucntion()" id="btn">Place Order</button>
+    <div id="cartbox">
+
+    </div>
+</body>
+
+</html>
+
+<script type="module">
+    let nav = document.getElementById('navbar')
+    import navbar from './component/navbar.js'
+
+    nav.innerHTML = navbar()
+</script>
+
+<script>
+    let cart = JSON.parse(localStorage.getItem('cartMeal'))
+    let cartbox = document.getElementById('cartbox')
+    console.log(cart)
+    
+
+    function showData(x) {
+        cartbox.innerHTML = null;
+        x.forEach(({name,img }) => {
+            let div = document.createElement('div')
+
+            let name1 = document.createElement('h3')
+            name1.textContent = name;
+           
+            let img1 = document.createElement('img')
+            img1.src = img;
+
+            
+            div.append(img1, name1)
+            cartbox.append(div)
+
+        })
+
+    }
+    showData(cart)
+    let btn=document.getElementById(btn);
+function placeOrderFucntion(){
+    setTimeout(() => {
+        alert(' Your order is accepted')
+        setTimeout(() => {
+            alert('Your order is being cooked')
+            setTimeout(() => {
+                alert('Order out for delivery')
+                alert('Order delivered')
+            }, 12000);
+        }, 8000);
+    }, 3000);
+}
+</script>
