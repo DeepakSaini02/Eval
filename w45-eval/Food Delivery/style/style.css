@@ -12,3 +12,15 @@
     color: white;
 
 }
+#signupForm{
+    display: grid;
+    width: 30%;
+    margin: 30px auto;
+    gap: 10px;
+}
+#loginForm{
+    display: grid;
+    width: 30%;
+    margin: 30px auto;
+    gap: 10px;
+}
