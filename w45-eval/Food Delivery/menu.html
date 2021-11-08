@@ -50,10 +50,27 @@ function showData(x){
 
         let cartbtn=document.createElement('button')
         cartbtn.innerText='Add to Cart';
+        cartbtn.onclick=function(){
+            gotoCart(strCategory,strCategoryThumb)
+        }
         div.append(img,name,dis,cartbtn)
         container.append(div)
         
     })
 
+}
+
+if(localStorage.getItem('cartMeal')==null){
+    localStorage.setItem('cartMeal',JSON.stringify([]))
+}
+
+function gotoCart(name,img){
+    let cart=JSON.parse(localStorage.getItem('cartMeal'))
+    let obj={
+        img,
+        name
+    }
+    cart.push(obj)
+    localStorage.setItem('cartMeal',JSON.stringify(cart))
 }
 </script>
