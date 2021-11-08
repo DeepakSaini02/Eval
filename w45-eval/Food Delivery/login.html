@@ -26,7 +26,10 @@
     import navbar from './component/navbar.js'
     nav.innerHTML=navbar()
 
-    function login(e)
+  
+</script>
+<script>
+      function login(e)
     {
          e.preventDefault()
          let myform=document.getElementById('loginForm')
@@ -35,7 +38,7 @@
              username:myform.loginuser.value,
          }
          let data=JSON.stringify(userdetails);
-         fatch(`https://masai-api-mocker.herokuapp.com/auth/login`,{
+         fetch(`https://masai-api-mocker.herokuapp.com/auth/login`,{
             method:"POST",
              body:data,
              headers:{
