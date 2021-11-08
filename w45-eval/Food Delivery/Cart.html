@@ -70,9 +70,12 @@ function placeOrderFucntion(){
             alert('Your order is being cooked')
             setTimeout(() => {
                 alert('Order out for delivery')
-                alert('Order delivered')
-            }, 12000);
-        }, 8000);
-    }, 3000);
+                setTimeout(() => {
+                    alert('Order delivered')
+                window.location.href='index.html'
+                }, 12000);
+            }, 8000);
+        }, 3000);
+    }, 0000);
 }
 </script>
