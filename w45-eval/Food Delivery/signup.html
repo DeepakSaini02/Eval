@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>SignUp</title>
     <link rel="stylesheet" href="./style/style.css">
 </head>
 <body>
     <div id="navbar">
     </div>
 
-    <div id="signup">
-        <form action="" id="signupForm" onsubmit="signup(event)">
+    <div id="sign">
+        <form action="" id="signupForm" onsubmit="signupF(event)">
             <input type="text" placeholder="Name" id="name">
             <input type="email" placeholder="email" id="email">
             <input type="password" placeholder="Password" id="password">
@@ -29,26 +29,36 @@
     let nav =document.getElementById('navbar')
     import navbar from './component/navbar.js'
     nav.innerHTML=navbar()
-
-    function login(e)
+</script>
+<script>
+       function signupF(e)
     {
-         e.preventDefault()
-         let myform=document.getElementById('loginForm')
-         let userdetails={
-             password:myform.loginpassword.value,
-             username:myform.loginuser.value,
+         e.preventDefault();
+         let myform=document.getElementById('signupForm')
+         let userregister={
+           name:myform.name.value,
+           email:myform.email.value,
+           password:myform.password.value,
+           username:myform.username.value,
+           mobile:myform.mobile.value,
+           description:myform.description.value
          }
-         let data=JSON.stringify(userdetails);
-         fatch(`https://masai-api-mocker.herokuapp.com//auth/register`,{
-             method:POST,
+         console.log(userregister)
+         let data=JSON.stringify(userregister);
+         fetch("https://masai-api-mocker.herokuapp.com/auth/register",{
+             method:"POST",
              body:data,
              headers:{
-                 'Contact-Type': "application/json"
+                 'Content-Type': "application/json",
              }
          }).then((res)=>{
              return res.json()
          }).then((res)=>{
              console.log(res)
          })
+         .catch((err)=>{
+             console.log(err);
+         })
     }
+    
 </script>

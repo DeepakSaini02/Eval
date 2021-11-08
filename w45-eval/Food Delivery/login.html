@@ -36,15 +36,18 @@
          }
          let data=JSON.stringify(userdetails);
          fatch(`https://masai-api-mocker.herokuapp.com/auth/login`,{
-             method:POST,
+            method:"POST",
              body:data,
              headers:{
-                 'Contact-Type': "application/json"
+                 'Content-Type': "application/json",
              }
          }).then((res)=>{
              return res.json()
          }).then((res)=>{
              console.log(res)
+         })
+         .catch((err)=>{
+             console.log(err);
          })
     }
 </script>
