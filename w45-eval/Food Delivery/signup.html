@@ -11,10 +11,14 @@
     <div id="navbar">
     </div>
 
-    <div id="login">
-        <form action="" id="loginForm" onsubmit="login(event)">
-            <input type="text" placeholder="Username" id="loginuser">
-            <input type="password" placeholder="Password" id="loginpassword">
+    <div id="signup">
+        <form action="" id="signupForm" onsubmit="signup(event)">
+            <input type="text" placeholder="Name" id="name">
+            <input type="email" placeholder="email" id="email">
+            <input type="password" placeholder="Password" id="password">
+            <input type="text" placeholder="Username" id="username">
+            <input type="number" name="mobile" id="mobile" placeholder="mobile">
+            <input type="text" id="description" placeholder="Description">
             <input type="submit">
         </form>
     </div>
@@ -35,7 +39,7 @@
              username:myform.loginuser.value,
          }
          let data=JSON.stringify(userdetails);
-         fatch(`https://masai-api-mocker.herokuapp.com/auth/login`,{
+         fatch(`https://masai-api-mocker.herokuapp.com//auth/register`,{
              method:POST,
              body:data,
              headers:{

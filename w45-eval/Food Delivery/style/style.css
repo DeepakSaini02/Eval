@@ -1,0 +1,14 @@
+#navbar {
+    border: 1px solid black;
+}
+#box-1 {
+    display: flex;
+    background-color: indigo;
+}
+#box-1>a {
+    text-decoration: none;
+    padding: 0.6rem;
+    margin: 0.3rem;
+    color: white;
+
+}
